@@ -1,0 +1,12 @@
+<resources>
+    <dimen name="floating_button_margin">16dp</dimen>
+
+    <dimen name="title_size">18sp</dimen>
+    <dimen name="price_size">14sp</dimen>
+
+    <dimen name="button_add_size">40sp</dimen>
+    <dimen name="button_sell_size">14sp</dimen>
+
+    <dimen name= "product_image_size">40dp</dimen>
+    <dimen name= "product_image_margin">10dp</dimen>
+</resources>
