@@ -50,6 +50,7 @@
 
     <Button
         android:id="@+id/floating_button"
+        android:onClick="addProduct"
         android:text="@string/btn_label"
         android:textSize="@dimen/button_add_size"
         android:textColor="@color/colorWhite"

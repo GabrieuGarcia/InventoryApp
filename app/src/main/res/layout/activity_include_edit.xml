@@ -70,6 +70,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:onClick="getImageFromGallery"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -82,9 +83,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="3 - Escolha a imagem do Produto"/>
-
-
-
+            <ImageView
+                android:id="@+id/product_image"
+                android:layout_width="wrap_content"
+                android:layout_height="100dp" />
     </LinearLayout>
+
+    <Button
+        android:onClick="salvarProduto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Salvar"/>
 
 </LinearLayout>

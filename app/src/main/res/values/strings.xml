@@ -2,4 +2,7 @@
     <string name="app_name">Inventory App</string>
     <string name="btn_label">+</string>
     <string name="btn_sell">Venda</string>
+    <string name="include_edit_activity_label">Incluir/Editar Produto</string>
+    <string name="products_detail_activity_label">Detalhe</string>
+    <string name="products_activity_label">Produtos</string>
 </resources>
