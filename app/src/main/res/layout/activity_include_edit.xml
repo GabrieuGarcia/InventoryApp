@@ -1,90 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.android.inventoryapp.IncludeEditActivity"
-    android:orientation="vertical"
-    android:background="@color/colorPrimary">
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="vertical"
-        android:padding="20dp"
-        android:layout_marginBottom="1dp"
-        android:layout_margin="4dp">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Cadastre ou altere um produto"
-            android:textColor="@color/colorWhite"
-            android:textSize="40sp"/>
-
-    </LinearLayout>
+    android:background="@color/colorPrimary"
+    android:padding="20dp"
+    tools:context="com.example.android.inventoryapp.IncludeEditActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="20dp"
-        android:layout_marginBottom="1dp"
-        android:layout_margin="4dp"
-        android:background="@color/colorWhite">
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:text="Cadastre ou altere um produto"
+            android:textColor="@color/colorWhite"
+            android:textSize="40sp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="1 - Digite o nome do Produto"/>
+            android:layout_marginBottom="10dp"
+            android:text="1 - Digite o nome do Produto"
+            android:textColor="@color/colorWhite"
+            android:textSize="20sp" />
 
         <EditText
             android:id="@+id/edit_product_name"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="20dp"
-        android:layout_margin="4dp"
-        android:layout_marginBottom="1dp"
-        android:background="@color/colorWhite">
+            android:layout_height="40dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/shape_button_delete"
+            android:paddingLeft="10dp"
+            android:textColor="@color/colorWhite" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="2 - Digite o valor do Produto"/>
+            android:layout_marginBottom="10dp"
+            android:text="2 - Digite o valor do Produto"
+            android:textColor="@color/colorWhite"
+            android:textSize="20sp" />
 
         <EditText
             android:id="@+id/edit_product_value"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="40dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/shape_button_delete"
+            android:inputType="numberDecimal"
+            android:paddingLeft="10dp"
+            android:textColor="@color/colorWhite" />
 
-    </LinearLayout>
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="3 - Digite o e-mail do fornecedor"
+            android:textColor="@color/colorWhite"
+            android:textSize="20sp" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="20dp"
-        android:layout_margin="4dp"
-        android:layout_marginBottom="1dp"
-        android:background="@color/colorWhite">
+        <EditText
+            android:id="@+id/edit_email_provider"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/shape_button_delete"
+            android:inputType="textEmailAddress"
+            android:paddingLeft="10dp"
+            android:textColor="@color/colorWhite" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="3 - Escolha a imagem do Produto"/>
+            android:layout_marginBottom="10dp"
+            android:text="4 - Selecione um Imagem do Produto"
+            android:textColor="@color/colorWhite"
+            android:textSize="20sp" />
 
-
+        <ImageView
+            android:id="@+id/product_image"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/shape_button_buy"
+            android:onClick="getImageFromGallery"
+            android:text="Pesquisar imagem"
+            android:textColor="@color/colorWhite" />
 
     </LinearLayout>
 
-</LinearLayout>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/shape_button_buy"
+        android:onClick="salvarProduto"
+        android:text="Salvar Produto"
+        android:textColor="@color/colorWhite" />
+
+</RelativeLayout>
