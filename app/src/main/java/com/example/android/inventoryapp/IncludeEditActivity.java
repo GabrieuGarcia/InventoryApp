@@ -44,6 +44,7 @@ public class IncludeEditActivity extends AppCompatActivity {
         ContentValues values = new ContentValues();
 
         EditText editText = (EditText) findViewById(R.id.edit_product_name);
+<<<<<<< HEAD
         String name = editText.getText().toString().trim();
         values.put(ProductEntry.COLUMN_NAME, name);
 
@@ -54,10 +55,19 @@ public class IncludeEditActivity extends AppCompatActivity {
         editText = (EditText) findViewById(R.id.edit_email_provider);
         String email = editText.getText().toString().trim();
         values.put(ProductEntry.COLUMN_EMAIL, email);
+=======
+        String name = editText.getText().toString();
+        values.put(ProductEntry.COLUMN_NAME_NAME, name);
+
+        editText = (EditText) findViewById(R.id.edit_product_value);
+        double price = Double.parseDouble(editText.getText().toString());
+        values.put(ProductEntry.COLUMN_NAME_PRICE, price);
+>>>>>>> a2a2ee9702608df541b1fbb8ed82f1b0accbf599
 
         ImageView imageView = (ImageView) findViewById(R.id.product_image);
         Bitmap bitmap = ((BitmapDrawable) imageView.getDrawable()).getBitmap();
         byte[] data = getBitmapAsByteArray(bitmap);
+<<<<<<< HEAD
         values.put(ProductEntry.COLUMN_IMAGE, data);
 
         values.put(ProductEntry.COLUMN_QTD, 0);
@@ -75,6 +85,16 @@ public class IncludeEditActivity extends AppCompatActivity {
         } else {
             Toast.makeText(IncludeEditActivity.this, "Preencha os campos do Produto!", Toast.LENGTH_LONG).show();
         }
+=======
+        values.put(ProductEntry.COLUMN_NAME_IMAGE, data);
+
+        values.put(ProductEntry.COLUMN_NAME_QTD, 0);
+
+
+// Insert the new row, returning the primary key value of the new row
+        long newRowId = db.insert(ProductEntry.TABLE_NAME, null, values);
+        Toast.makeText(IncludeEditActivity.this, "Produto salvo!" + newRowId, Toast.LENGTH_LONG).show();
+>>>>>>> a2a2ee9702608df541b1fbb8ed82f1b0accbf599
     }
 
     public void getImageFromGallery(View view) {

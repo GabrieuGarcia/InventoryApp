@@ -1,5 +1,6 @@
 package com.example.android.inventoryapp;
 
+<<<<<<< HEAD
 import android.Manifest;
 import android.app.LoaderManager;
 import android.content.Intent;
@@ -15,6 +16,21 @@ import android.widget.RelativeLayout;
 import java.util.ArrayList;
 import java.util.List;
 
+=======
+import android.app.LoaderManager;
+import android.content.Intent;
+import android.content.Loader;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
+import android.widget.RelativeLayout;
+
+import java.util.ArrayList;
+import java.util.List;
+
+>>>>>>> a2a2ee9702608df541b1fbb8ed82f1b0accbf599
 public class ProductsActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<List<Product>> {
     private static final int PRODUCTS_LOADER_ID = 1;
     private ProductsAdapter mAdapter;
@@ -37,6 +53,7 @@ public class ProductsActivity extends AppCompatActivity implements LoaderManager
 
         productsListView.setEmptyView(mEmptyStateTextView);
         productsListView.setAdapter(mAdapter);
+<<<<<<< HEAD
 
         if (Build.VERSION.SDK_INT >=23 ){
             if (checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION)
@@ -46,6 +63,8 @@ public class ProductsActivity extends AppCompatActivity implements LoaderManager
                 return;
             }
         }
+=======
+>>>>>>> a2a2ee9702608df541b1fbb8ed82f1b0accbf599
     }
 
     @Override
