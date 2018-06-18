@@ -12,29 +12,19 @@ public class Product implements Serializable {
     private Double price;
     private byte[] image;
     private int qtd;
-<<<<<<< HEAD
     private String email;
-
-=======
->>>>>>> a2a2ee9702608df541b1fbb8ed82f1b0accbf599
 
     public Product() {
     }
 
-<<<<<<< HEAD
     public Product(int id, String name, Double price, byte[] image, int qtd, String email) {
-=======
-    public Product(int id, String name, Double price, byte[] image, int qtd) {
->>>>>>> a2a2ee9702608df541b1fbb8ed82f1b0accbf599
         this.id = id;
         this.name = name;
         this.price = price;
         this.image = image;
         this.qtd = qtd;
-<<<<<<< HEAD
         this.email = email;
-=======
->>>>>>> a2a2ee9702608df541b1fbb8ed82f1b0accbf599
+
     }
 
     public int getId() {
@@ -76,7 +66,6 @@ public class Product implements Serializable {
     public void setQtd(int qtd) {
         this.qtd = qtd;
     }
-<<<<<<< HEAD
 
     public String getEmail() {
         return email;
@@ -85,6 +74,5 @@ public class Product implements Serializable {
     public void setEmail(String email) {
         this.email = email;
     }
-=======
->>>>>>> a2a2ee9702608df541b1fbb8ed82f1b0accbf599
+
 }
