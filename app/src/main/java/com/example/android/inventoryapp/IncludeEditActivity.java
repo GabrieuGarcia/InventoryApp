@@ -1,6 +1,5 @@
 package com.example.android.inventoryapp;
 
-import android.R;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
@@ -54,12 +53,6 @@ public class IncludeEditActivity extends AppCompatActivity {
         editText = (EditText) findViewById(R.id.edit_email_provider);
         String email = editText.getText().toString().trim();
         values.put(ProductEntry.COLUMN_EMAIL, email);
-        String name = editText.getText().toString();
-        values.put(ProductEntry.COLUMN_NAME_NAME, name);
-
-        editText = (EditText) findViewById(R.id.edit_product_value);
-        double price = Double.parseDouble(editText.getText().toString());
-        values.put(ProductEntry.COLUMN_NAME_PRICE, price);
 
         ImageView imageView = (ImageView) findViewById(R.id.product_image);
         Bitmap bitmap = ((BitmapDrawable) imageView.getDrawable()).getBitmap();
@@ -75,20 +68,17 @@ public class IncludeEditActivity extends AppCompatActivity {
 
             Toast.makeText(IncludeEditActivity.this, "Produto " + name + " salvo!", Toast.LENGTH_LONG).show();
 
-            Intent myIntent = new Intent(IncludeEditActivity.this, ProductsActivity.class);
-            startActivity(myIntent);
+            //Intent myIntent = new Intent(IncludeEditActivity.this, ProductsActivity.class);
+            //startActivity(myIntent);
+            finish();
 
         } else {
             Toast.makeText(IncludeEditActivity.this, "Preencha os campos do Produto!", Toast.LENGTH_LONG).show();
         }
-        values.put(ProductEntry.COLUMN_NAME_IMAGE, data);
-
-        values.put(ProductEntry.COLUMN_NAME_QTD, 0);
-
 
 // Insert the new row, returning the primary key value of the new row
-        long newRowId = db.insert(ProductEntry.TABLE_NAME, null, values);
-        Toast.makeText(IncludeEditActivity.this, "Produto salvo!" + newRowId, Toast.LENGTH_LONG).show();
+        //long newRowId = db.insert(ProductEntry.TABLE_NAME, null, values);
+        //Toast.makeText(IncludeEditActivity.this, "Produto salvo!" + newRowId, Toast.LENGTH_LONG).show();
     }
 
     public void getImageFromGallery(View view) {

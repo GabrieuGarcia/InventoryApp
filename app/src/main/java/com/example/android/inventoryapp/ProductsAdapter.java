@@ -15,11 +15,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import static android.provider.BaseColumns._ID;
-<<<<<<< HEAD
 import static com.example.android.inventoryapp.ProductSQLiteContract.ProductEntry.COLUMN_QTD;
-=======
-import static com.example.android.inventoryapp.ProductSQLiteContract.ProductEntry.COLUMN_NAME_QTD;
->>>>>>> a2a2ee9702608df541b1fbb8ed82f1b0accbf599
 import static com.example.android.inventoryapp.ProductSQLiteContract.ProductEntry.TABLE_NAME;
 
 /**
@@ -65,11 +61,7 @@ public class ProductsAdapter extends ArrayAdapter<Product> {
                 int newQtd = currentProduct.getQtd() - 1;
                 SQLiteDatabase db = mDbHelper.getWritableDatabase();
                 ContentValues cv = new ContentValues();
-<<<<<<< HEAD
                 cv.put(COLUMN_QTD, newQtd);
-=======
-                cv.put(COLUMN_NAME_QTD, newQtd);
->>>>>>> a2a2ee9702608df541b1fbb8ed82f1b0accbf599
                 db.update(TABLE_NAME, cv, _ID + "=" + String.valueOf(currentProduct.getId()), null);
                 currentProduct.setQtd(newQtd);
                 qtdView.setText("quant: " + String.valueOf(currentProduct.getQtd()));

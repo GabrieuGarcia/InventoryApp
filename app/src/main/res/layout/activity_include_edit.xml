@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
-    android:padding="20dp"
     tools:context="com.example.android.inventoryapp.IncludeEditActivity">
 
     <LinearLayout
@@ -69,7 +68,6 @@
             android:textColor="@color/colorWhite"
             android:textSize="20sp" />
 
-<<<<<<< HEAD
         <EditText
             android:id="@+id/edit_email_provider"
             android:layout_width="match_parent"
@@ -79,35 +77,33 @@
             android:inputType="textEmailAddress"
             android:paddingLeft="10dp"
             android:textColor="@color/colorWhite" />
-=======
-    <LinearLayout
-        android:onClick="getImageFromGallery"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="20dp"
-        android:layout_margin="4dp"
-        android:layout_marginBottom="1dp"
-        android:background="@color/colorWhite">
->>>>>>> a2a2ee9702608df541b1fbb8ed82f1b0accbf599
-
-        <TextView
+        <LinearLayout
+            android:onClick="getImageFromGallery"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-<<<<<<< HEAD
-            android:layout_marginBottom="10dp"
-            android:text="4 - Selecione um Imagem do Produto"
-            android:textColor="@color/colorWhite"
-            android:textSize="20sp" />
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:layout_margin="4dp"
+            android:layout_marginBottom="1dp"
+            android:background="@color/colorWhite">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:text="4 - Selecione um Imagem do Produto"
+                android:textColor="@color/colorWhite"
+                android:textSize="20sp" />
 
-        <ImageView
-            android:id="@+id/product_image"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="@drawable/shape_button_buy"
-            android:onClick="getImageFromGallery"
-            android:text="Pesquisar imagem"
-            android:textColor="@color/colorWhite" />
+            <ImageView
+                android:id="@+id/product_image"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/shape_button_buy"
+                android:onClick="getImageFromGallery"
+                android:text="Pesquisar imagem"
+                android:textColor="@color/colorWhite" />
+
+            </LinearLayout>
 
     </LinearLayout>
 
@@ -121,19 +117,3 @@
         android:textColor="@color/colorWhite" />
 
 </RelativeLayout>
-=======
-            android:text="3 - Escolha a imagem do Produto"/>
-            <ImageView
-                android:id="@+id/product_image"
-                android:layout_width="wrap_content"
-                android:layout_height="100dp" />
-    </LinearLayout>
-
-    <Button
-        android:onClick="salvarProduto"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Salvar"/>
-
-</LinearLayout>
->>>>>>> a2a2ee9702608df541b1fbb8ed82f1b0accbf599
