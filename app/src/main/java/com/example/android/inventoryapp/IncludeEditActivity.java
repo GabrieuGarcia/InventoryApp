@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
+
 import com.example.android.inventoryapp.ProductSQLiteContract.ProductEntry;
 
 import java.io.ByteArrayOutputStream;
@@ -38,47 +39,40 @@ public class IncludeEditActivity extends AppCompatActivity {
 
     public void salvarProduto(View view) {
         // Gets the data repository in write mode
+
+        EditText ed = (EditText) findViewById(R.id.edit_product_name);
+        String name = ed.getText().toString().trim();
+        ed = (EditText) findViewById(R.id.edit_product_value);
+        String value = ed.getText().toString().trim();
+        ed = (EditText) findViewById(R.id.edit_email_provider);
+        String email = ed.getText().toString().trim();
+        ImageView imageView = (ImageView) findViewById(R.id.product_image);
+
+        if(name.isEmpty() || value.isEmpty() || value.equals("0") || email.isEmpty() || imageView.getDrawable() == null ) {
+            Toast.makeText(IncludeEditActivity.this, "Preencha os campos do Produto!", Toast.LENGTH_LONG).show();
+            return;
+        }
+
         SQLiteDatabase db = mDbHelper.getWritableDatabase();
         // Create a new map of values, where column names are the keys
         ContentValues values = new ContentValues();
 
-        EditText editText = (EditText) findViewById(R.id.edit_product_name);
-        String name = editText.getText().toString().trim();
         values.put(ProductEntry.COLUMN_NAME, name);
 
-        editText = (EditText) findViewById(R.id.edit_product_value);
-        double price = Double.parseDouble(editText.getText().toString());
-        values.put(ProductEntry.COLUMN_PRICE, price);
+        values.put(ProductEntry.COLUMN_PRICE, Double.parseDouble(value));
 
-        editText = (EditText) findViewById(R.id.edit_email_provider);
-        String email = editText.getText().toString().trim();
         values.put(ProductEntry.COLUMN_EMAIL, email);
 
-        ImageView imageView = (ImageView) findViewById(R.id.product_image);
         Bitmap bitmap = ((BitmapDrawable) imageView.getDrawable()).getBitmap();
         byte[] data = getBitmapAsByteArray(bitmap);
         values.put(ProductEntry.COLUMN_IMAGE, data);
 
         values.put(ProductEntry.COLUMN_QTD, 0);
 
-        if (!name.isEmpty() && price > 0D && data.length > 0) {
+        db.insert(ProductEntry.TABLE_NAME, null, values);
 
-            // Insert the new row, returning the primary key value of the new row
-            long newRowId = db.insert(ProductEntry.TABLE_NAME, null, values);
-
-            Toast.makeText(IncludeEditActivity.this, "Produto " + name + " salvo!", Toast.LENGTH_LONG).show();
-
-            //Intent myIntent = new Intent(IncludeEditActivity.this, ProductsActivity.class);
-            //startActivity(myIntent);
-            finish();
-
-        } else {
-            Toast.makeText(IncludeEditActivity.this, "Preencha os campos do Produto!", Toast.LENGTH_LONG).show();
-        }
-
-// Insert the new row, returning the primary key value of the new row
-        //long newRowId = db.insert(ProductEntry.TABLE_NAME, null, values);
-        //Toast.makeText(IncludeEditActivity.this, "Produto salvo!" + newRowId, Toast.LENGTH_LONG).show();
+        Toast.makeText(IncludeEditActivity.this, "Produto " + name + " salvo!", Toast.LENGTH_LONG).show();
+        finish();
     }
 
     public void getImageFromGallery(View view) {

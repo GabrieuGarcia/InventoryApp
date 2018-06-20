@@ -81,6 +81,7 @@
                 android:text="-"
                 android:textColor="@color/colorWhite"
                 android:textSize="30sp" />
+
             <TextView
                 android:id="@+id/product_qtd"
                 android:layout_width="match_parent"
@@ -108,15 +109,18 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="15dp"
         android:layout_alignParentBottom="true"
-        android:orientation="vertical">
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="50dp"
+            android:layout_margin="5dp"
             android:background="@drawable/shape_button_buy"
             android:onClick="buyProduct"
-            android:layout_margin="10dp"
             android:tag="true"
             android:text="Comprar produto"
             android:textAllCaps="false"
@@ -125,10 +129,22 @@
 
         <Button
             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="5dp"
+            android:background="@drawable/shape_button_buy"
+            android:onClick="detailSalvarProduto"
+            android:text="Salvar Produto"
+            android:textAllCaps="false"
+            android:textColor="@color/colorWhite"
+            android:textSize="20sp" />
+
+        <Button
+            android:layout_width="match_parent"
             android:layout_height="50dp"
+            android:layout_margin="5dp"
             android:background="@drawable/shape_button_delete"
             android:onClick="deleteProduct"
-            android:layout_margin="10dp"
             android:tag="true"
             android:text="Deletar produto"
             android:textAllCaps="false"

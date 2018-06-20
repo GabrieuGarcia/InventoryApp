@@ -4,14 +4,21 @@ import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import static android.provider.BaseColumns._ID;
-import static com.example.android.inventoryapp.ProductSQLiteContract.ProductEntry.*;
+import static com.example.android.inventoryapp.IncludeEditActivity.getBitmapAsByteArray;
+import static com.example.android.inventoryapp.ProductSQLiteContract.ProductEntry.COLUMN_QTD;
+import static com.example.android.inventoryapp.ProductSQLiteContract.ProductEntry.TABLE_NAME;
 
 public class ProductDetailActivity extends AppCompatActivity {
     Product mProduct;
@@ -73,5 +80,42 @@ public class ProductDetailActivity extends AppCompatActivity {
         intent.putExtra(Intent.EXTRA_TEXT, "I'm email body.");
 
         startActivity(Intent.createChooser(intent, "Send Email"));
+    }
+
+    public void detailSalvarProduto(){
+
+        EditText ed = (EditText) findViewById(R.id.edit_product_name);
+        String name = ed.getText().toString().trim();
+        ed = (EditText) findViewById(R.id.edit_product_value);
+        String value = ed.getText().toString().trim();
+        ed = (EditText) findViewById(R.id.edit_email_provider);
+        String email = ed.getText().toString().trim();
+        ImageView imageView = (ImageView) findViewById(R.id.product_image);
+
+        if(name.isEmpty() || value.isEmpty() || value.equals("0") || email.isEmpty() || imageView.getDrawable() == null ) {
+            Toast.makeText(ProductDetailActivity.this, "Preencha os campos do Produto!", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        SQLiteDatabase db = mDbHelper.getWritableDatabase();
+        // Create a new map of values, where column names are the keys
+        ContentValues values = new ContentValues();
+
+        values.put(ProductSQLiteContract.ProductEntry.COLUMN_NAME, name);
+
+        values.put(ProductSQLiteContract.ProductEntry.COLUMN_PRICE, Double.parseDouble(value));
+
+        values.put(ProductSQLiteContract.ProductEntry.COLUMN_EMAIL, email);
+
+        Bitmap bitmap = ((BitmapDrawable) imageView.getDrawable()).getBitmap();
+        byte[] data = getBitmapAsByteArray(bitmap);
+        values.put(ProductSQLiteContract.ProductEntry.COLUMN_IMAGE, data);
+
+        values.put(ProductSQLiteContract.ProductEntry.COLUMN_QTD, 0);
+
+        db.insert(ProductSQLiteContract.ProductEntry.TABLE_NAME, null, values);
+
+        Toast.makeText(ProductDetailActivity.this, "Produto " + name + " salvo!", Toast.LENGTH_LONG).show();
+        finish();
     }
 }
